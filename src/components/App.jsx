@@ -33,13 +33,9 @@ export class App extends Component {
   getFunc = (text, page) => {
     this.setState({ loading: true });
 
-    console.log('Wpisana fraza wyszukiwania:', text);
-
     getSearch(text, page)
       .then(resp => resp.json())
       .then(data => {
-        console.log('Odpowiedź z API:', data);
-
         if (data.hits.length === 0) {
           this.setState({ empty: true });
         }

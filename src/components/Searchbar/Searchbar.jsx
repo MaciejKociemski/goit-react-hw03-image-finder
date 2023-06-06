@@ -11,8 +11,6 @@ export class Searchbar extends Component {
   onChangeInput = e => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
-
-    console.info('Wpisano wartość:', value);
   };
 
   resetForm = () => {
