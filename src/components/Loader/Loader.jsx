@@ -7,12 +7,13 @@ export const Loader = () => {
     <div className={css.loaderContainer}>
       <Oval
         visible={true}
-        color="#FFA500"
-        height={200}
+        ariaLabel="loading-indicator"
+        height={100}
         width={100}
-        alignIt
-        radius={10}
-        strokeWidth={20}
+        strokeWidth={1}
+        strokeWidthSecondary={2000}
+        color="blue"
+        secondaryColor="red"
       />
     </div>
   );
