@@ -5,7 +5,15 @@ import css from './Loader.module.css';
 export const Loader = () => {
   return (
     <div className={css.loaderContainer}>
-      <Oval visible={true} color="#00BFFF" height={100} width={120} alignIt />
+      <Oval
+        visible={true}
+        color="#FFA500"
+        height={200}
+        width={100}
+        alignIt
+        radius={10}
+        strokeWidth={20}
+      />
     </div>
   );
 };

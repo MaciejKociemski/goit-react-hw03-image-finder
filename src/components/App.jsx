@@ -124,7 +124,10 @@ export class App extends Component {
         {total / 12 > page && <Button clickLoad={this.clickLoad} />}
 
         {this.state.showModal && (
-          <Modal closeModal={this.closeModal}>
+          <Modal closeModal={this.closeModal}
+            largeImageURL={this.state.largeImageURL}
+            alt={this.state.alt}
+          >
             <img src={this.state.largeImageURL} alt={this.state.alt} />
           </Modal>
         )}
