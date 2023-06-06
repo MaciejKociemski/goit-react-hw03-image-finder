@@ -1,8 +1,7 @@
-import { Component } from 'react';
-import { createPortal } from 'react-dom';
+import React, { Component } from 'react';
 import css from './Modal.module.css';
 
-export default class Modal extends Component {
+export class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.keyDown);
   }
@@ -24,16 +23,14 @@ export default class Modal extends Component {
   };
 
   render() {
-    const modalRoot = document.querySelector('#modal-root');
     const { largeImageURL, alt } = this.props;
 
-    return createPortal(
+    return (
       <div onClick={this.handleClose} className={css.Overlay}>
         <div className={css.Modal}>
           <img src={largeImageURL} alt={alt} />
         </div>
-      </div>,
-      modalRoot
+      </div>
     );
   }
 }

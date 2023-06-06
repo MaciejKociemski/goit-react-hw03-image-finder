@@ -4,7 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { Button } from 'components/Button/Button';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Loader } from 'components/Loader/Loader';
-import Modal from 'components/Modal/Modal'; // Poprawiony import
+import { Modal } from 'components/Modal/Modal'; // Poprawiony import
 import { Searchbar } from 'components/Searchbar/Searchbar';
 
 export class App extends Component {
@@ -17,7 +17,7 @@ export class App extends Component {
     error: null,
     empty: false,
     showModal: false,
-    largeImageURL: '',
+    largeImageURL:'',
     alt: '',
   };
 
