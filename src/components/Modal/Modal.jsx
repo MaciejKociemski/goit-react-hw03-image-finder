@@ -2,11 +2,13 @@ import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 
-const modalRoot = document.querySelector('#modal-root');
-
-export class Modal extends Component {
+export default class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.keyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.keyDown);
   }
 
   keyDown = evt => {
@@ -15,10 +17,6 @@ export class Modal extends Component {
     }
   };
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.keyDown);
-  }
-
   handleClose = evt => {
     if (evt.currentTarget === evt.target) {
       this.props.closeModal();
@@ -26,9 +24,14 @@ export class Modal extends Component {
   };
 
   render() {
+    const modalRoot = document.querySelector('#modal-root');
+    const { largeImageURL, alt } = this.props;
+
     return createPortal(
       <div onClick={this.handleClose} className={css.Overlay}>
-        <div className={css.Modal}>{this.props.children}</div>{' '}
+        <div className={css.Modal}>
+          <img src={largeImageURL} alt={alt} />
+        </div>
       </div>,
       modalRoot
     );

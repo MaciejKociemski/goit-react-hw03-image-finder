@@ -7,7 +7,7 @@ export const ImageGalleryItem = ({ images, togleModal }) => {
       {images.map(item => (
         <li
           key={item.id}
-          onClick={evt => {
+          onClick={() => {
             togleModal(item.largeImageURL, item.tags);
           }}
           className={css.galleryItem}

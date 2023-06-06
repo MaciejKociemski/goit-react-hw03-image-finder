@@ -1,10 +1,10 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { getSearch } from 'api/getSearch';
 import { Toaster } from 'react-hot-toast';
 import { Button } from 'components/Button/Button';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Loader } from 'components/Loader/Loader';
-import { Modal } from 'components/Modal/Modal.jsx';
+import Modal from 'components/Modal/Modal'; // Poprawiony import
 import { Searchbar } from 'components/Searchbar/Searchbar';
 
 export class App extends Component {
@@ -17,12 +17,14 @@ export class App extends Component {
     error: null,
     empty: false,
     showModal: false,
+    largeImageURL: '',
+    alt: '',
   };
 
-  componentDidUpdate(_, PrevState) {
+  componentDidUpdate(_, prevState) {
     if (
-      PrevState.search !== this.state.search ||
-      PrevState.page !== this.state.page
+      prevState.search !== this.state.search ||
+      prevState.page !== this.state.page
     ) {
       this.getFunc(this.state.search, this.state.page);
     }
@@ -56,6 +58,7 @@ export class App extends Component {
         this.setState({ loading: false });
       });
   };
+
   clickLoad = () => {
     this.setState(prevSt => ({
       page: prevSt.page + 1,
@@ -63,8 +66,10 @@ export class App extends Component {
   };
 
   openModal = (largeImageURL, alt) => {
-    this.setState(({ showModal }) => {
-      return { showModal: !showModal, largeImageURL, alt };
+    this.setState({
+      showModal: true,
+      largeImageURL,
+      alt,
     });
   };
 
@@ -81,8 +86,10 @@ export class App extends Component {
   };
 
   closeModal = () => {
-    this.setState(({ showModal }) => {
-      return { showModal: !showModal };
+    this.setState({
+      showModal: false,
+      largeImageURL: '',
+      alt: '',
     });
   };
 
@@ -125,3 +132,5 @@ export class App extends Component {
     );
   }
 }
+
+export default App;
