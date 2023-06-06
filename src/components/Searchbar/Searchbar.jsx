@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { toast } from 'react-hot-toast';
 import { MdImageSearch } from 'react-icons/md';
 import css from './Searchbar.module.css';
-// import 'react-notifications-component/dist/theme.css';
 
 export class Searchbar extends Component {
   state = {

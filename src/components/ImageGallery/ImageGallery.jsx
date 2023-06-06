@@ -4,11 +4,9 @@ import css from './ImageGallery.module.css';
 
 export const ImageGallery = ({ images, togleModal }) => {
   return (
-    
-      <ul className={css.gallery}>
-        <ImageGalleryItem togleModal={togleModal} images={images} />
-      </ul>
-
+    <ul className={css.gallery}>
+      <ImageGalleryItem togleModal={togleModal} images={images} />
+    </ul>
   );
 };
 
